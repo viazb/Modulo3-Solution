@@ -1,64 +1,52 @@
-*{
-  font-family: "Comic Sans MS", cursive, sans-serif;
-}
 h1 {
-  margin-bottom: 30px;
+  margin-bottom : 30 px ;
 }
-td {
-  vertical-align: middle;
+de entrada [type = "text"] {
+  ancho : 200 px ;
+  flotador : izquierda ;
 }
-th {
-  text-align: center;
-  vertical-align: middle;
-  font-size: 1.2em;
-  color: red;
-}
-input[type="text"] {
-  width: 200px;
-  float: left;
-}
-.narrow-button {
-  float: left;
-  margin-left: 10px;
+.narrow botón {
+  flotador : izquierda ;
+  margin-left : 10 px ;
 }
 .loader {
-  display: none;
-  margin-left: 5px;
-  font-size: 10px;
-  float: left;
-  border-top: 1.1em solid rgba(147, 147, 147, 0.2);
-  border-right: 1.1em solid rgba(147, 147, 147, 0.2);
-  border-bottom: 1.1em solid rgba(147, 147, 147, 0.2);
-  border-left: 1.1em solid #676767;
-  -webkit-transform: translateZ(0);
-  -ms-transform: translateZ(0);
-  transform: translateZ(0);
-  -webkit-animation: load8 1.1s infinite linear;
-  animation: load8 1.1s infinite linear;
+  pantalla : ninguno ;
+  margin-left : 5 px ;
+  font-size : 10 px ;
+  flotador : izquierda ;
+  border-top : 1.1 em  sólida  RGBA ( 147, 147, 147, 0.2 );
+  border-right : 1.1 em  sólida  RGBA ( 147, 147, 147, 0.2 );
+  border-bottom : 1.1 em  sólida  RGBA ( 147, 147, 147, 0.2 );
+  border-left : 1.1 em  sólida  # 676767 ;
+  -webkit- transformar : translateZ ( 0 );
+  -MS- transformar : translateZ ( 0 );
+  transformar : translateZ ( 0 );
+  -webkit- animación : Carga 8  1.1 s infinita lineal;
+  animación : Carga 8  1.1 s infinita lineal;
 }
-.loader,
-.loader:after {
-  border-radius: 50%;
-  width: 3em;
-  height: 3em;
+.loader ,
+.loader : después de {
+  la frontera de radio : 50 % ;
+  anchura : 3 em ;
+  Altura : 3 em ;
 }
-@-webkit-keyframes load8 {
+@ -webkit-fotogramas clave load8 {
   0% {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
+    -webkit- transformar : rotar ( 0 grados );
+    transformar : rotate ( 0 grados );
   }
   100% {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
+    -webkit- transformar : rotación ( 360 grados );
+    transformar : rotación ( 360 grados );
   }
 }
 @keyframes load8 {
   0% {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
+    -webkit- transformar : rotar ( 0 grados );
+    transformar : rotate ( 0 grados );
   }
   100% {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
+    -webkit- transformar : rotación ( 360 grados );
+    transformar : rotación ( 360 grados );
   }
 }
