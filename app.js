@@ -4,53 +4,9 @@
 angular.module('NarrowItDownApp',[])
 .controller('NarrowItDownController', NarrowItDownController)
 .service('MenuSearchService', MenuSearchService)
-.directive('foundItems', FoundItemsDirective)
-.directive('itemsLoaderIdicator', ItemsLoaderIdicatorDirective)
+.directive('foundItems', FoundItems)
+.directive('itemsLoaderIdicator', ItemsLoaderIdicator)
 .constant('ApiBasePath', "https://davids-restaurant.herokuapp.com");
-
-
-function FoundItemsDirective() {
-  var ddo = {
-    restrict: 'E',
-    templateUrl: 'foundItems.template.html',
-    scope: {
-      foundItems: '<',
-      onRemove: '&'
-    }
-  };
-  return ddo;
-}
-
-function ItemsLoaderIdicatorDirective() {
-  var ddo = {
-    restrict: 'E',
-    templateUrl: 'loader/itemsloaderidicator.template.html',
-    scope: {
-      showItemLoaderIndicator: '< '
-    },
-    link: ItemsLoaderIdicatorDirectiveLink
-  };
-  return ddo;
-}
-
-function ItemsLoaderIdicatorDirectiveLink(scope, element, attrs, controller) {
-  scope.$watch('showItemLoaderIndicator', function (newValue, oldValue){
-    if (newValue === true) {
-      showItemLoaderIndicator();
-    } else {
-      hideItemsLoaderIndicator();
-    }
-  });
-
-  function showItemLoaderIndicator(){
-    element.find("div").css('display', 'block');
-  }
-
-  function hideItemsLoaderIndicator(){
-    element.find("div").css('display', 'none');
-  }
-
-}
 
 NarrowItDownController.$inject = ['MenuSearchService'];
 function NarrowItDownController(MenuSearchService) {
@@ -89,6 +45,49 @@ function MenuSearchService($http, ApiBasePath) {
     return result.data.menu_items.filter(item => item.description.toLowerCase().indexOf(searchTerm) !== -1);
   });
 }
+}
+
+function FoundItems() {
+  var ddo = {
+    restrict: 'E',
+    templateUrl: 'foundItems.template.html',
+    scope: {
+      foundItems: '<',
+      onRemove: '&'
+    }
+  };
+  return ddo;
+}
+
+function ItemsLoaderIdicator() {
+  var ddo = {
+    restrict: 'E',
+    templateUrl: 'loader/itemsloaderidicator.template.html',
+    scope: {
+      showItemLoaderIndicator: '< '
+    },
+    link: ItemsLoaderIdicatorLink
+  };
+  return ddo;
+}
+
+function ItemsLoaderIdicatorLink(scope, element, attrs, controller) {
+  scope.$watch('showItemLoaderIndicator', function (newValue, oldValue){
+    if (newValue === true) {
+      showItemLoaderIndicator();
+    } else {
+      hideItemsLoaderIndicator();
+    }
+  });
+
+  function showItemLoaderIndicator(){
+    element.find("div").css('display', 'block');
+  }
+
+  function hideItemsLoaderIndicator(){
+    element.find("div").css('display', 'none');
+  }
+
 }
 
 })();
